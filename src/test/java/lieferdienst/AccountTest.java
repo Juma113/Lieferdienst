@@ -50,7 +50,7 @@ public class AccountTest {
     public void testIfGetCreatedWorks() {
         // When
         LocalDate result = account1.getCreated();
-        assertEquals(account1.getCreated(), LocalDate.of(2021,01,31));
+        assertEquals(account1.getCreated(), LocalDate.of(2021,02,01));
     }
     //----------------------------------------------------------------------------------------------------------//
     @Test

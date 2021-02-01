@@ -7,15 +7,6 @@ public class ProductTest {
             4.50,"sortTitleTest","restaurantNameTest");
     //----------------------------------------------------------------------------------------------------------//
     @Test
-    public void testIfGetProductIdWorks()
-    {
-        // When
-        int result = product1.getProductId();
-        // Then
-        assertEquals("Your input is incorrect, check the info below",result,7);
-    }
-    //----------------------------------------------------------------------------------------------------------//
-    @Test
     public void testIfGetProductNameWorks()
     {
         // When
