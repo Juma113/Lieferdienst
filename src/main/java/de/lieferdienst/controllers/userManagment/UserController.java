@@ -46,7 +46,7 @@ public class UserController {
     }
 
     @PostMapping(path = "/add", produces = "application/json")
-    ResponseEntity<User> save(@RequestBody User user) {
+    ResponseEntity<User> saveUser(@RequestBody User user) {
 
         user.setPassword(User.get_SHA_256_SecurePassword(user.getPassword()));
         user.setAddress(addressRepository.save(user.getAddress()));
