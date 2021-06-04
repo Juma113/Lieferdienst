@@ -1,7 +1,7 @@
-package de.lieferdienst.controllers.orderManagment;
+package de.lieferdienst.controllers;
 
 
-import de.lieferdienst.model.errors.OrderNotFounfException;
+import de.lieferdienst.model.errors.NotFounfException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ControllerAdvice
-public class OrderNotFoundAdvice {
+public class NotFoundAdvice {
 
     @ResponseBody
-    @ExceptionHandler(OrderNotFounfException.class)
+    @ExceptionHandler(NotFounfException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    String personNotFoundHandler(OrderNotFounfException ex) {
+    String personNotFoundHandler(NotFounfException ex) {
         return ex.getMessage();
     }
 }

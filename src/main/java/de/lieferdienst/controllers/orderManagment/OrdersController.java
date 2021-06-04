@@ -1,6 +1,6 @@
 package de.lieferdienst.controllers.orderManagment;
 
-import de.lieferdienst.model.errors.OrderNotFounfException;
+import de.lieferdienst.model.errors.NotFounfException;
 import de.lieferdienst.model.helper.Address;
 import de.lieferdienst.model.orderManagment.Orders;
 import de.lieferdienst.model.orderManagment.Payment;
@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Transactional
-@RestController
-@RequestMapping("/api/order")
+    @Transactional
+    @RestController
+    @RequestMapping("/api/order")
 public class OrdersController {
 
     private final OrdersRepository ordersRepository;
@@ -41,11 +41,11 @@ public class OrdersController {
     }
 
     @GetMapping(path = "/{id}")
-    ResponseEntity<Orders> findOrderByID(@PathVariable(value = "id") Long id) throws OrderNotFounfException
+    ResponseEntity<Orders> findOrderByID(@PathVariable(value = "id") Long id) throws NotFounfException
     {
         return ResponseEntity.ok(this.ordersRepository
                 .findById(id)
-                .orElseThrow(() -> new OrderNotFounfException("No Order found for id " + id)));
+                .orElseThrow(() -> new NotFounfException("No Order found for id " + id)));
     }
 
     @PostMapping(path = "/add", produces = "application/json")

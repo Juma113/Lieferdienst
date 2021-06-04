@@ -1,6 +1,6 @@
 package de.lieferdienst.controllers.userManagment;
 
-import de.lieferdienst.model.errors.UserNotFoundException;
+import de.lieferdienst.model.errors.NotFounfException;
 import de.lieferdienst.model.orderManagment.ShoppingCart;
 import de.lieferdienst.model.userManagment.User;
 import de.lieferdienst.repository.storage.AddressRepository;
@@ -39,10 +39,10 @@ public class UserController {
     }
 
     @GetMapping(path = "/{id}")
-    ResponseEntity<User> findById(@PathVariable(value = "id") Long id) throws UserNotFoundException {
+    ResponseEntity<User> findById(@PathVariable(value = "id") Long id) throws NotFounfException {
         return ResponseEntity.ok(this.userRepository
                 .findById(id)
-                .orElseThrow(() -> new UserNotFoundException("No Persons found for id " + id)));
+                .orElseThrow(() -> new NotFounfException("No Persons found for id " + id)));
     }
 
     @PostMapping(path = "/add", produces = "application/json")
