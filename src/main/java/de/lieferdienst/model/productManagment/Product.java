@@ -1,28 +1,20 @@
 package de.lieferdienst.model.productManagment;
 
 import de.lieferdienst.model.helper.BaseEntity;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.logging.Logger;
 
 @Entity(name = "Product")
-@Getter
-@Setter
 @NoArgsConstructor
-@AllArgsConstructor
 //////////////////////////////////Start Class Product/////////////////////////
 public class Product  extends BaseEntity {
 
-    private transient Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+    private final transient Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     @Column(
             nullable = false
@@ -41,6 +33,10 @@ public class Product  extends BaseEntity {
     )
     private double price;
 
+    @Column(
+            nullable = false
+    )
+    private String imagPath;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Category category;
@@ -103,6 +99,14 @@ public class Product  extends BaseEntity {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public String getImagPath() {
+        return imagPath;
+    }
+
+    public void setImagPath(String imagPath) {
+        this.imagPath = imagPath;
     }
 }
 /////////////////////////////////////End of class Product/////////////////////////////////

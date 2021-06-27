@@ -1,0 +1,19 @@
+<section th:fragment="productsGrid" class="container tab-content py-4 py-sm-5" xmlns:th="http://www.w3.org/1999/xhtml">
+  <h2 class="text-center pt-2 pt-sm-0 mb-sm-5" th:text="${pageTitle}"></h2>
+  <div class="row pt-3 pt-sm-0" th:unless="${#lists.isEmpty(products)}">
+    <!-- Item-->
+    <div class="col-lg-3 col-md-4 col-sm-6 mb-grid-gutter" th:each="product : ${products}">
+      <div class="card product-card border pb-2" style="height: 100%">
+        <img class="card-img-top" th:src="${product.getImagPath()}" alt="Pizza">
+        <div class="card-body pt-1 pb-2">
+          <h3 class="product-title fs-md text-center" th:utext="${product.getProductName()}"></h3>
+          <p class="fs-ms text-muted text-center" th:utext="${product.getDescription()}"></p>
+          <div class="d-flex align-items-center justify-content-between pt-2">
+            <div class="product-price"><span class="text-accent" th:utext="${product.getPrice()}+ €"></span></div>
+            <button class="btn btn-primary btn-sm" type="button">+<i class="ci-cart fs-base ms-1"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

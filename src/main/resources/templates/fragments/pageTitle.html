@@ -1,0 +1,11 @@
+<div class="container py-md-4" th:fragment="pageFirstTitle" xmlns:th="http://www.w3.org/1999/xhtml">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb breadcrumb-light flex-lg-nowrap justify-content-center justify-content-lg-start">
+      <li class="breadcrumb-item"><a class="text-nowrap" href="index.html"><i class="ci-home"></i>Home</a></li>
+      <li class="breadcrumb-item text-nowrap"><a href="#">Restauranten</a>
+      </li>
+      <li class="breadcrumb-item text-nowrap active" aria-current="page">sham-bistro &nbsp; <p class="d-inline-block" th:text="${pageTitle}"></p> </li>
+    </ol>
+  </nav>
+  <h1 class="text-light text-center text-lg-start py-3 d-inline-block">sham-bistro &nbsp;</h1><h1 class="d-inline-block text-light" th:text="${pageTitle}"></h1>
+</div>

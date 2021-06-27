@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="de" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <th:block th:include="fragments/head::head"></th:block>
+  </head>
+  <!-- Body-->
+  <body class="handheld-toolbar-enabled">
+    <!-- Sign in / sign up modal-->
+    <div th:replace="fragments/signmodal::signModal"></div>
+    <main class="page-wrapper">
+      <!-- Navbar for Food Delivery Service demo-->
+      <header class="navbar d-block navbar-sticky navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <a class="navbar-brand d-none d-sm-block me-4 order-lg-1" href="/"><img src="img/logo-dark.png" width="150" alt="Guten Appetit"></a><a class="navbar-brand d-sm-none me-2 order-lg-1" href="/"><img src="img/logo-icon.png" width="74" alt="Guten Appetit"></a>
+          <div class="navbar-toolbar d-flex align-items-center order-lg-3">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"><span class="navbar-toggler-icon"></span></button><a class="navbar-tool d-none d-lg-flex" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#searchBox" role="button" aria-expanded="false" aria-controls="searchBox"><span class="navbar-tool-tooltip">Suchen</span>
+              <div class="navbar-tool-icon-box"><i class="navbar-tool-icon ci-search"></i></div></a><a class="navbar-tool ms-2" href="#signin-modal" data-bs-toggle="modal"><span class="navbar-tool-tooltip">Account</span>
+              <div class="navbar-tool-icon-box"><i class="navbar-tool-icon ci-user"></i></div></a>
+          </div>
+          <div class="collapse navbar-collapse me-auto order-lg-2" id="navbarCollapse">
+            <!-- Search (mobile)-->
+            <div class="d-lg-none py-3">
+              <div class="input-group"><i class="ci-search position-absolute top-50 start-0 translate-middle-y ms-3"></i>
+                <input class="form-control rounded-start" type="text" placeholder="Was brauchen Sie?">
+              </div>
+            </div>
+            <!-- Location dropdown-->
+            <ul class="navbar-nav navbar-mega-nav ms-lg-4 pe-lg-2 me-lg-2">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle ps-lg-0" href="#" data-bs-toggle="dropdown"><i class="ci-location me-2"></i>Restauranten</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/shamShawarma">SHAM BISTRO</a></li>
+                  <li><a class="dropdown-item" href="adem-shawarma.html">PIZZERIA ADEM</a></li>
+                  <li><a class="dropdown-item" href="#">SINDBAD</a></li>
+                  <li><a class="dropdown-item" href="#">TIBA</a></li>
+                </ul>
+              </li>
+            </ul>
+            <!-- Primary menu-->
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">kategorien</a>
+                <div class="dropdown-menu px-2 ps-0 pb-4">
+                  <div class="d-flex">
+                    <div class="mega-dropdown-column pt-4 px-3" style="width: 12rem;">
+                      <div class="widget mb-3"><a class="d-block" href="shawarma-kategorie.html">
+                        <img class="d-block mx-auto mb-3" src="img/food-delivery/icons/shawarma.png" width="70" alt="Shawarma &amp; Döner">
+                        <h6 class="fs-base text-center">Shawarma &amp; Döner</h6></a>
+                      </div>
+                    </div>
+                    <div class="mega-dropdown-column pt-4 px-3" style="width: 12rem;">
+                      <div class="widget mb-3"><a class="d-block" href="pizza-kategorie.html"><img class="d-block mx-auto mb-3" src="img/food-delivery/icons/pizza.png" width="80" alt="Pizza &amp; Manakish">
+                          <h6 class="fs-base text-center">Pizza &amp; Manakish</h6></a></div>
+                    </div>
+                  </div>
+                  <div class="d-flex">
+                    <div class="mega-dropdown-column pt-4 px-3" style="width: 12rem;">
+                      <div class="widget mb-3"><a class="d-block" href="grill-kategorie.html"><img class="d-block mx-auto mb-3" src="img/food-delivery/icons/Grill.png" width="100" alt="Grill">
+                          <h6 class="fs-base text-center">Grill</h6></a></div>
+                    </div>
+                    <div class="mega-dropdown-column pt-4 px-3" style="width: 12rem;">
+                      <div class="widget mb-3"><a class="d-block" href="nudel-kategorie.html"><img class="d-block mx-auto mb-3" src="img/food-delivery/icons/pasta.png" width="70" alt="Noodel">
+                          <h6 class="fs-base text-center">Nudel</h6></a></div>
+                    </div>
+                  </div>
+                  <div class="d-flex">
+                    <div class="mega-dropdown-column pt-4 px-3" style="width: 12rem;">
+                      <div class="widget mb-3"><a class="d-block" href="salat-kategorie.html"><img class="d-block mx-auto mb-3" src="img/food-delivery/icons/salat.png" width="60"  alt="Salat">
+                          <h6 class="fs-base text-center">Salat</h6></a></div>
+                    </div>
+                    <div class="mega-dropdown-column pt-4 px-3" style="width: 12rem;">
+                      <div class="widget mb-3"><a class="d-block" href="vegetarisch-kategorie.html"><img class="d-block mx-auto mb-3" src="img/food-delivery/icons/vegetarisch.png" width="55" alt="Vegetarisch">
+                          <h6 class="fs-base text-center">Vegetarisch</h6></a></div>
+                    </div>
+                  </div>
+                  <div class="d-flex">
+                    <div class="mega-dropdown-column pt-4 px-3" style="width: 12rem;">
+                      <div class="widget mb-3"><a class="d-block" href="getränke-kategorie.html"><img class="d-block mx-auto mb-3" src="img/food-delivery/icons/drink.png" width="40"  alt="drink">
+                          <h6 class="fs-base text-center">Getränke</h6></a></div>
+                    </div>
+                    <div class="mega-dropdown-column pt-4 px-3" style="width: 12rem;">
+                      <div class="widget mb-3"><a class="d-block" href="international-kategorie.html"><img class="d-block mx-auto mb-3" src="img/food-delivery/icons/burger.png" width="70" alt="burger">
+                          <h6 class="fs-base text-center">International</h6></a></div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- Search collapse-->
+        <div class="search-box collapse" id="searchBox">
+          <div class="container py-2">
+            <div class="input-group"><i class="ci-search position-absolute top-50 start-0 translate-middle-y ms-3"></i>
+              <input class="form-control rounded-start" type="text" placeholder="Was brauchen Sie?">
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- Hero section-->
+      <section class="bg-darker bg-size-cover bg-position-center py-5 py-lg-10" style="background-image:url(img/food-delivery/hero-bg.jpg);">
+        <div class="container pb-5">
+          <div class="row justify-content-center">
+            <div class="col-xl-6 col-lg-7 col-md-8 col-sm-10 text-center">
+              <div class="h1 text-light mb-3 pt-5">
+                Wir liefern Ihr Lieblingsessen frisch &amp; schnell in<h1 class=" text-primary">Erfurt</h1> 
+              </div>
+              <a class="btn btn-primary" href="#Categories" data-scroll>Was möchten Sie essen?</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Cards -->
+      <div class="container dmax-md-none">
+        <div class="text-center m-5">
+          <h2 class=" text-primary">So funktioniert es</h2>
+          <h4>So einfach geht's!</h4>
+        </div>
+        <div class="row">
+          <div class="col-lg">
+            <!-- Card group -->
+            <div class="card-group text-center">
+              <!-- Card -->
+              <div class="card" style="border: none;">
+                <img src="img/shop.png" class="card-img-top w-50 m-auto " alt="Card image">
+                <div class="card-body">
+                  <h5 class="card-title">Wählen Sie ein Restaurant</h5>
+                  <p class="card-text fs-sm text-muted">Wählen Sie Ihr Lieblingsrestaurant</p>
+                </div>
+              </div>
+              <!-- Card -->
+              <div class="card" style="border: none;">
+                <img src="img/fast-food.png" class="card-img-top w-50 m-auto" alt="Card image">
+                <div class="card-body">
+                  <h5 class="card-title">Wählen Sie Ihr Essen</h5>
+                  <p class="card-text fs-sm text-muted">Suchen Sie, was Ihrem Geschmack entspricht</p>
+                </div>
+              </div>
+              <!-- Card -->
+              <div class="card" style="border: none;">
+                <img src="img/food_delivery.png" class="card-img-top w-50 m-auto" alt="Card image">
+                <div class="card-body">
+                  <h5 class="card-title">Bezahlen und liefern lassen</h5>
+                  <p class="card-text fs-sm text-muted">bezahlen Online mit Kreditkarte, Klarna oder PayPal</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Slide -->
+      <div class="container d-md-none ">
+        <div class="text-center m-5">
+          <h2 class=" text-primary">So funktioniert es</h2>
+          <h4>So einfach geht's!</h4>
+        </div>
+        <!-- One item + Dots + Loop (defaults) -->
+        <div class="tns-carousel tns-nav-enabled">
+          <div class="tns-carousel-inner">
+            <img src="img/shop.png"  alt="shop logo">
+            <img src="img/fast-food.png" alt="fast-food logo">
+            <img src="img/food_delivery.png" alt="food-delivery logo">
+          </div>
+        </div>
+      </div>
+      <!-- Categories (cuisine) grid-->
+      <section class="container py-4 my-lg-3 py-sm-5" id="Categories">
+        <h2 class="text-center text-primary pt-4 pt-sm-3">Trendiges Essen in Ihrer Stadt</h2>
+        <p class="text-muted text-center mb-5">Wählen Sie, was Sie wollen, und wir liefern es Ihnen</p>
+        <div class="row">
+          <div class="col-md-4 col-sm-6 mb-grid-gutter">
+            <a class="card border-0 shadow" href="shawarma-kategorie.html"><img class="card-img-top" src="img/food-delivery/category/Shawarma.jpg" alt="Shawarma &amp; Döner">
+              <div class="card-body py-4 text-center">
+                <h3 class="h5 mt-1">Shawarma &amp; Döner</h3>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 col-sm-6 mb-grid-gutter">
+            <a class="card border-0 shadow" href="pizza-kategorie.html"><img class="card-img-top" src="img/food-delivery/category/04.jpg" alt="Pizza &amp; Manakish">
+              <div class="card-body py-4 text-center">
+                <h3 class="h5 mt-1">Pizza &amp; Manakish</h3>
+              </div>
+           </a>
+          </div>
+          <div class="col-md-4 col-sm-6 mb-grid-gutter">
+            <a class="card border-0 shadow" href="grill-kategorie.html"><img class="card-img-top" src="img/food-delivery/category/grill.jpg" alt="Grill">
+              <div class="card-body py-4 text-center">
+                <h3 class="h5 mt-1">Grill</h3>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 col-sm-6 mb-grid-gutter">
+            <a class="card border-0 shadow" href="nudel-kategorie.html"><img class="card-img-top" src="img/food-delivery/category/02.jpg" alt="Noodles">
+              <div class="card-body py-4 text-center">
+                <h3 class="h5 mt-1">Nudel</h3>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 col-sm-6 mb-grid-gutter">
+            <a class="card border-0 shadow" href="salat-kategorie.html"><img class="card-img-top" src="img/food-delivery/category/salat.jpg" alt="Salat">
+              <div class="card-body py-4 text-center">
+                <h3 class="h5 mt-1">Salat</h3>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 col-sm-6 mb-grid-gutter">
+            <a class="card border-0 shadow" href="vegetarisch-kategorie.html"><img class="card-img-top" src="img/food-delivery/category/flafel.jpg" alt="Vegetarisch">
+              <div class="card-body py-4 text-center">
+                <h3 class="h5 mt-1">Vegetarisch</h3>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 col-sm-6 mb-grid-gutter">
+            <a class="card border-0 shadow" href="getränke-kategorie.html"><img class="card-img-top" src="img/food-delivery/category/drink.jpg" alt="Getränke">
+              <div class="card-body py-4 text-center">
+                <h3 class="h5 mt-1">Getränke</h3>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 col-sm-6 mb-grid-gutter">
+            <a class="card border-0 shadow" href="international-kategorie.html"><img class="card-img-top" src="img/food-delivery/category/01.jpg" alt="burger">
+              <div class="card-body py-4 text-center">
+                <h3 class="h5 mt-1">International</h3>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+      <!-- Popular restaurants logo grid-->
+      <section class="container pb-4 pt-2 pt-sm-0 pt-md-2 pb-sm-5">
+        <h2 class="text-center text-primary">Beliebte arabische Restaurants in Ihrer Stadt</h2>
+        <p class="text-muted pb-4 text-center">Prüfen Sie die besten Restaurants in Ihrer Nähe</p>
+        <div class="row pb-2 pb-sm-0 pb-md-3">
+          <div class="col-md-3 col-sm-4 col-6"><a class="d-block bg-white shadow-sm rounded-3 py-3 py-sm-4 mb-grid-gutter" href="/shamShawarma"><img class="d-block mx-auto" src="img/food-delivery/restaurants/logos/sham-bistro.png" style="width: 150px;" alt="Brand"></a></div>
+          <div class="col-md-3 col-sm-4 col-6"><a class="d-block bg-white shadow-sm rounded-3 py-3 py-sm-4 mb-grid-gutter" href="/ademShawarma"><img class="d-block mx-auto" src="img/food-delivery/restaurants/logos/adem.png" style="width: 150px;" alt="Brand"></a></div>
+          <div class="col-md-3 col-sm-4 col-6"><a class="d-block bg-white shadow-sm rounded-3 py-3 py-sm-4 mb-grid-gutter" href="#"><img class="d-block mx-auto" src="img/food-delivery/restaurants/logos/sindbad.png" style="width: 150px;" alt="Brand"></a></div>
+          <div class="col-md-3 col-sm-4 col-6"><a class="d-block bg-white shadow-sm rounded-3 py-3 py-sm-4 mb-grid-gutter" href="#"><img class="d-block mx-auto" src="img/food-delivery/restaurants/logos/tiba.png" style="width: 150px;" alt="Brand"></a></div>
+        </div>
+      </section>
+      <!-- Reviews-->
+      <section class="bg-secondary py-5">
+        <div class="container py-md-4 pt-3 pb-0 py-sm-3">
+          <h2 class="text-center mb-4 mb-md-5 text-primary">Kundenbewertungen</h2>
+          <div class="tns-carousel mb-3">
+            <div class="tns-carousel-inner" data-carousel-options="{&quot;items&quot;: 2, &quot;controls&quot;: false, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1, &quot;gutter&quot;:20}, &quot;576&quot;:{&quot;items&quot;:2, &quot;gutter&quot;:20},&quot;850&quot;:{&quot;items&quot;:3, &quot;gutter&quot;:20},&quot;1080&quot;:{&quot;items&quot;:4, &quot;gutter&quot;:25}}}">
+              <blockquote class="mb-2">
+                <div class="card card-body fs-md text-muted border-0 shadow-sm">
+                  <div class="mb-2">
+                    <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star"></i>
+                    </div>
+                  </div>Lorem ipsum dolor sit amet, quia non consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </div>
+                <footer class="d-flex justify-content-center align-items-center pt-4"><img class="rounded-circle" src="img/testimonials/03.jpg" width="50" alt="Richard Davis">
+                  <div class="ps-3">
+                    <h6 class="fs-sm mb-n1">Richard Davis</h6><span class="fs-ms text-muted opacity-75">Feb 14, 2020</span>
+                  </div>
+                </footer>
+              </blockquote>
+              <blockquote class="mb-2">
+                <div class="card card-body fs-md text-muted border-0 shadow-sm">
+                  <div class="mb-2">
+                    <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i>
+                    </div>
+                  </div>Lorem ipsum dolor sit amet, quia non consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </div>
+                <footer class="d-flex justify-content-center align-items-center pt-4"><img class="rounded-circle" src="img/testimonials/04.jpg" width="50" alt="Laura Willson">
+                  <div class="ps-3">
+                    <h6 class="fs-sm mb-n1">Laura Willson</h6><span class="fs-ms text-muted opacity-75">Feb 05, 2020</span>
+                  </div>
+                </footer>
+              </blockquote>
+              <blockquote class="mb-2">
+                <div class="card card-body fs-md text-muted border-0 shadow-sm">
+                  <div class="mb-2">
+                    <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star"></i><i class="star-rating-icon ci-star"></i>
+                    </div>
+                  </div>Lorem ipsum dolor sit amet, quia non consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </div>
+                <footer class="d-flex justify-content-center align-items-center pt-4"><img class="rounded-circle" src="img/testimonials/01.jpg" width="50" alt="Mary Grant">
+                  <div class="ps-3">
+                    <h6 class="fs-sm mb-n1">Mary Alice Grant</h6><span class="fs-ms text-muted opacity-75">Jan 27, 2020</span>
+                  </div>
+                </footer>
+              </blockquote>
+              <blockquote class="mb-2">
+                <div class="card card-body fs-md text-muted border-0 shadow-sm">
+                  <div class="mb-2">
+                    <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star"></i>
+                    </div>
+                  </div>Lorem ipsum dolor sit amet, quia non consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </div>
+                <footer class="d-flex justify-content-center align-items-center pt-4"><img class="rounded-circle" src="img/testimonials/03.jpg" width="50" alt="Rafael Marquez">
+                  <div class="ps-3">
+                    <h6 class="fs-sm mb-n1">Rafael Marquez</h6><span class="fs-ms text-muted opacity-75">Dec 19, 2020</span>
+                  </div>
+                </footer>
+              </blockquote>
+              <blockquote class="mb-2">
+                <div class="card card-body fs-md text-muted border-0 shadow-sm">
+                  <div class="mb-2">
+                    <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i>
+                    </div>
+                  </div>Lorem ipsum dolor sit amet, quia non consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </div>
+                <footer class="d-flex justify-content-center align-items-center pt-4"><img class="rounded-circle" src="img/testimonials/02.jpg" width="50" alt="Adrian Lewis">
+                  <div class="ps-3">
+                    <h6 class="fs-sm mb-n1">Adrian Lewis</h6><span class="fs-ms text-muted opacity-75">Dec 13, 2020</span>
+                  </div>
+                </footer>
+              </blockquote>
+              <blockquote class="mb-2">
+                <div class="card card-body fs-md text-muted border-0 shadow-sm">
+                  <div class="mb-2">
+                    <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star-filled active"></i><i class="star-rating-icon ci-star"></i><i class="star-rating-icon ci-star"></i>
+                    </div>
+                  </div>Lorem ipsum dolor sit amet, quia non consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </div>
+                <footer class="d-flex justify-content-center align-items-center pt-4"><img class="rounded-circle" src="img/testimonials/02.jpg" width="50" alt="Daniel Adams">
+                  <div class="ps-3">
+                    <h6 class="fs-sm mb-n1">Daniel Adams</h6><span class="fs-ms text-muted opacity-75">Dec 04, 2020</span>
+                  </div>
+                </footer>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer-->
+    <footer th:replace="fragments/footer :: footer"></footer>
+    <!-- Toolbar for handheld devices (Food delivery)-->
+    <div th:replace="fragments/toolbar :: toolbar"></div>
+    <!-- Back To Top Button-->
+    <th:block th:include="fragments/topbutton::topbutton"></th:block>
+    <!-- Vendor scrits: js libraries and plugins-->
+    <th:block th:include="fragments/javascript::javascript"></th:block>
+  </body>
+</html>

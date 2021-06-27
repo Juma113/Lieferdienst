@@ -1,0 +1,106 @@
+<div th:fragment="signModal" class="modal fade" id="signin-modal" tabindex="-1" role="dialog" xmlns:th="http://www.w3.org/1999/xhtml">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-secondary">
+        <ul class="nav nav-tabs card-header-tabs" role="tablist">
+          <li class="nav-item"><a class="nav-link fw-medium active" href="#signin-tab" data-bs-toggle="tab" role="tab" aria-selected="true"><i class="ci-unlocked me-2 mt-n1"></i>Anmelden</a></li>
+          <li class="nav-item"><a class="nav-link fw-medium" href="#signup-tab" data-bs-toggle="tab" role="tab" aria-selected="false"><i class="ci-user me-2 mt-n1"></i>Registrieren</a></li>
+        </ul>
+        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body tab-content py-4">
+        <form class="needs-validation tab-pane fade show active" autocomplete="off" novalidate id="signin-tab">
+          <div class="mb-2">
+            <label class="form-label" for="si-email">E-Mail Adresse</label>
+            <input class="form-control" type="email" id="si-email" placeholder="johndoe@example.com" required>
+            <div class="invalid-feedback">Bitte geben Sie eine gültige E-Mail Adresse an.</div>
+          </div>
+          <div class="mb-2">
+            <label class="form-label" for="si-password">Passwort</label>
+            <div class="password-toggle">
+              <input class="form-control" type="password" id="si-password" required>
+              <label class="password-toggle-btn" aria-label="Show/hide password">
+                <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+              </label>
+            </div>
+          </div>
+          <div class="mb-2 d-flex flex-wrap justify-content-between">
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" id="si-remember">
+              <label class="form-check-label" for="si-remember">Erinnere mich</label>
+            </div><a class="fs-sm" href="#">Passwort vergessen?</a>
+          </div>
+          <button class="btn btn-primary btn-shadow d-block w-100" type="submit">Anmelden</button>
+        </form>
+        <form class="needs-validation tab-pane fade" autocomplete="off" novalidate id="signup-tab">
+
+          <div class="mb-2">
+            <label for="su-email">E-Mail Adresse</label>
+            <input class="form-control" type="email" id="su-email" placeholder="johndoe@example.com" required>
+            <div class="invalid-feedback">Bitte geben Sie eine gültige E-Mail Adresse an.</div>
+          </div>
+          <div class="mb-2">
+            <label class="form-label" for="su-password">Passwort</label>
+            <div class="password-toggle">
+              <input class="form-control" type="password" id="su-password" required>
+              <label class="password-toggle-btn" aria-label="Show/hide password">
+                <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+              </label>
+            </div>
+          </div>
+          <div class="mb-2">
+            <label class="form-label" for="su-password-confirm">Passwort bestätigen</label>
+            <div class="password-toggle">
+              <input class="form-control" type="password" id="su-password-confirm" required>
+              <label class="password-toggle-btn" aria-label="Show/hide password">
+                <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+              </label>
+            </div>
+          </div>
+          <div class="mb-2">
+            <label class="form-label" for="first-name">Vorname</label>
+            <input class="form-control" type="text" id="first-name" placeholder="John" required>
+            <div class="invalid-feedback">Bitte geben Sie Ihren Vornamen ein.</div>
+          </div>
+          <div class="mb-2">
+            <label class="form-label" for="last-name">Nachname</label>
+            <input class="form-control" type="text" id="last-name" placeholder="Müller" required>
+            <div class="invalid-feedback">Bitte geben Sie Ihren Nachnamen ein.</div>
+          </div>
+          <div class="mb-2">
+            <label class="form-label" for="phone-number">Rufnummer</label>
+            <input class="form-control" type="text" id="phone-number" placeholder="015784541561" required>
+            <div class="invalid-feedback">Bitte geben Sie Ihre Rufnummer ein.</div>
+          </div>
+          <div class="mb-2">
+            <label class="form-label" for="dob">Geburtsdatum</label>
+            <input class="form-control" type="date" id="dob" placeholder="" required>
+            <div class="invalid-feedback">Bitte geben Sie Ihr Geburtsdatum ein.</div>
+          </div>
+          <h6>Address</h6>
+          <div class="mb-2">
+            <label class="form-label" for="city">Stadt</label>
+            <input class="form-control" type="text" id="city" placeholder="Erfurt" required>
+            <div class="invalid-feedback">Bitte geben Sie den Namen Ihrer Stadt ein.</div>
+          </div>
+          <div class="mb-2">
+            <label class="form-label" for="street">Straße</label>
+            <input class="form-control" type="text" id="street" placeholder="Marcel-Breuer-Ring" required>
+            <div class="invalid-feedback">Bitte geben Sie den Namen Ihrer Straße ein.</div>
+          </div>
+          <div class="mb-2">
+            <label class="form-label" for="house-number">Hausnummer</label>
+            <input class="form-control" type="text" id="house-number" placeholder="5" required>
+            <div class="invalid-feedback">Bitte geben Sie die Nummer Ihres Hauses ein.</div>
+          </div>
+          <div class="mb-2">
+            <label class="form-label" for="zip">PLZ</label>
+            <input class="form-control" type="text" id="zip" placeholder="99085" required>
+            <div class="invalid-feedback">Bitte geben Sie die PLZ ein.</div>
+          </div>
+          <button class="btn btn-primary btn-shadow d-block w-100" type="submit">Registrieren</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

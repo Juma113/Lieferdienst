@@ -3,17 +3,13 @@ package de.lieferdienst.model.productManagment;
 
 import de.lieferdienst.model.helper.BaseEntity;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
 @Entity(name = "Category")
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 //////////////////////////////////Start Class Category/////////////////////////
@@ -30,6 +26,20 @@ public class Category extends BaseEntity {
         restaurant = new Restaurant(restaurantName);
     }
 
+    public String getSortTitle() {
+        return sortTitle;
+    }
 
+    public void setSortTitle(String sortTitle) {
+        this.sortTitle = sortTitle;
+    }
+
+    public Restaurant getRestaurant() {
+        return restaurant;
+    }
+
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
+    }
 }
-/////////////////////////////////////End of class Restaurant/////////////////////////////////
+/////////////////////////////////////End of class Category/////////////////////////////////
