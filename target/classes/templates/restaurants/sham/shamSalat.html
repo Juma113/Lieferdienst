@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+  <th:block th:include="fragments/head::head"></th:block>
+</head>
+  <!-- Body-->
+  <body class="handheld-toolbar-enabled">
+    <main class="page-wrapper">
+      <!-- Navbar for Food Delivery Service demo-->
+      <header th:replace="fragments/header::header"></header>
+      <!-- Page title-->
+      <section class="bg-darker bg-size-cover bg-position-center py-5" style="background-image: url(img/food-delivery/restaurants/single/salat-bg.jpg);">
+        <div th:replace="fragments/pageTitle::pageFirstTitle"></div>
+      </section>
+      <!-- Page navigation-->
+      <nav class="container mt-n5">
+        <div class="d-flex align-items-center bg-white rounded-3 shadow-lg py-2 ps-sm-2 pe-4 pe-lg-2"><img class="d-block rounded-3" src="img/food-delivery/restaurants/logos/sham-bistro.png" width="150" alt="Brand">
+          <div class="ps-lg-3 w-100 text-end">
+            <!-- For desktop-->
+            <ul class="nav nav-tabs d-none d-lg-flex border-0 mb-0">
+              <li class="nav-item"><a class="nav-link" href="/shamShawarma">Shawarma</a></li>
+              <li class="nav-item"><a class="nav-link" href="/shamPizza">Pizza &amp; Manakish</a></li>
+              <li class="nav-item"><a class="nav-link" href="/shamGrill">Grill</a></li>
+              <li class="nav-item"><a class="nav-link active" href="/shamSalat">Salat</a></li>
+              <li class="nav-item"><a class="nav-link" href="/shamVegetarisch">Vegetarisch</a></li>
+              <li class="nav-item"><a class="nav-link" href="/shamGetränke">Getränke</a></li>
+              <li class="nav-item"><a class="nav-link" href="/shamInternational">International</a></li>
+            </ul>
+            <!-- For mobile-->
+            <div class="btn-group dropdown d-lg-none ms-auto">
+              <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ci-menu fs-base me-2"></i>Menu</button>
+              <div class="dropdown-menu dropdown-menu-end">
+                <a class="dropdown-item fs-base" href="/shamShawarma">Shawarma</a>
+                <a class="dropdown-item fs-base" href="/shamPizza">Pizza &amp; Manakish</a>
+                <a class="dropdown-item fs-base" href="/shamGrill">Grill</a>
+                <a class="dropdown-item fs-base active" href="/shamSalat">Salat</a>
+                <a class="dropdown-item fs-base" href="/shamVegetarisch">Vegetarisch</a>
+                <a class="dropdown-item fs-base" href="/shamGetränke">Getränke</a>
+                <a class="dropdown-item fs-base" href="/shamInternational">International</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!-- Menu (Products grid)-->
+      <section th:replace="fragments/productsGrid::productsGrid"></section>
+    </main>
+    <!-- Footer-->
+    <footer th:replace="fragments/footer :: footer"></footer>
+    <!-- Toolbar for handheld devices (Food delivery)-->
+    <div th:replace="fragments/toolbar :: toolbar"></div>
+    <!-- Back To Top Button-->
+    <th:block th:include="fragments/topbutton::topbutton"></th:block>
+    <!-- Vendor scrits: js libraries and plugins-->
+    <th:block th:include="fragments/javascript::javascript"></th:block>
+  </body>
+</html>

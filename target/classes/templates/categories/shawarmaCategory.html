@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="de" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+  <th:block th:include="fragments/head::head"></th:block>
+</head>
+  <!-- Body-->
+  <body class="handheld-toolbar-enabled">
+    <main class="page-wrapper">
+      <!-- Navbar for Food Delivery Service demo-->
+      <header th:replace="fragments/header::header"></header>
+      <!-- Page title-->
+      <section class="bg-darker bg-size-cover bg-position-center py-5" style="background-image: url(img/food-delivery/restaurants/single/shawarma-bg.jpg);">
+        <div th:replace="fragments/pageTitleCategory::pageTitleCategory"></div>
+      </section>
+      <!-- categories-->
+      <section th:replace="fragments/categoryBar::categoryBar"></section>
+      <!-- Items grid-->
+      <section class="container py-4 py-sm-5">
+          <div class="row pt-3 pt-sm-0" th:unless="${#lists.isEmpty(products)}" >
+              <div class="col-md-4 col-sm-6 mb-grid-gutter" th:each="product : ${products}">
+                  <div class="card product-card h-100 border-0 shadow pb-2">
+                      <span class="badge badge-end badge-shadow bg-danger fs-md fw-medium" data-bs-toggle="tooltip"  th:utext="${product.getPrice()}+' €'"></span>
+                      <img class="card-img-top" th:src="${product.getImagPath()}">
+                      <div class="bg-white rounded-3 pt-1 px-2 mx-auto mt-n5" style="width: 175px;">
+                          <img class="d-block rounded-3 mx-auto" src="img/food-delivery/restaurants/logos/sham-bistro.png" width="150" alt="logo">
+                      </div>
+                      <div class="card-body text-center pt-3 pb-4">
+                          <h3 class="h5 mb-2" th:utext="${product.getProductName()}"></h3>
+                          <div class="fs-ms text-muted" th:utext="${product.getDescription()}"></div>
+                      </div>
+                      <div class="d-flex align-items-center justify-content-center pt-2">
+                          <form action="#" th:action="@{'/addProduct/'+${product.getId()}}" th:method="post">
+                              <button class="btn btn-primary btn-sm" type="submit">+<i class="ci-cart fs-base ms-1"></i></button>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="row pt-3 pt-sm-0" th:unless="${#lists.isEmpty(products2)}" >
+              <div class="col-md-4 col-sm-6 mb-grid-gutter" th:each="ademProduct : ${products2}">
+                  <div class="card product-card h-100 border-0 shadow pb-2">
+                      <span class="badge badge-end badge-shadow bg-warning fs-md fw-medium" data-bs-toggle="tooltip"  th:utext="${ademProduct.getPrice()}+' €'"></span>
+                      <img class="card-img-top" th:src="${ademProduct.getImagPath()}">
+                      <div class="bg-white rounded-3 pt-1 px-2 mx-auto mt-n5" style="width: 175px;">
+                          <img class="d-block rounded-3 mx-auto" src="img/food-delivery/restaurants/logos/adem.png" width="150" alt="logo">
+                      </div>
+                      <div class="card-body text-center pt-3 pb-4">
+                          <h3 class="h5 mb-2" th:utext="${ademProduct.getProductName()}"></h3>
+                          <div class="fs-ms text-muted" th:utext="${ademProduct.getDescription()}"></div>
+                      </div>
+                      <div class="d-flex align-items-center justify-content-center pt-2">
+                          <form action="#" th:action="@{'/addProduct/'+${ademProduct.getId()}}" th:method="post">
+                              <button class="btn btn-primary btn-sm" type="submit">+<i class="ci-cart fs-base ms-1"></i></button>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+    </main>
+    <!-- Footer-->
+    <footer th:replace="fragments/footer :: footer"></footer>
+    <!-- Toolbar for handheld devices (Food delivery)-->
+    <div th:replace="fragments/toolbar :: toolbar"></div>
+    <!-- Back To Top Button-->
+    <th:block th:include="fragments/topbutton::topbutton"></th:block>
+    <!-- Vendor scrits: js libraries and plugins-->
+    <th:block th:include="fragments/javascript::javascript"></th:block>
+  </body>
+</html>
