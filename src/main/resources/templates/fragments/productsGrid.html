@@ -4,13 +4,15 @@
     <!-- Item-->
     <div class="col-lg-3 col-md-4 col-sm-6 mb-grid-gutter" th:each="product : ${products}">
       <div class="card product-card border pb-2" style="height: 100%">
-        <img class="card-img-top" th:src="${product.getImagPath()}" alt="Pizza">
+        <img class="card-img-top" th:src="${product.getImagPath()}" alt="">
         <div class="card-body pt-1 pb-2">
           <h3 class="product-title fs-md text-center" th:utext="${product.getProductName()}"></h3>
           <p class="fs-ms text-muted text-center" th:utext="${product.getDescription()}"></p>
           <div class="d-flex align-items-center justify-content-between pt-2">
-            <div class="product-price"><span class="text-accent" th:utext="${product.getPrice()}+ €"></span></div>
-            <button class="btn btn-primary btn-sm" type="button">+<i class="ci-cart fs-base ms-1"></i></button>
+            <div class="product-price"><span class="text-accent" th:utext="${product.getPrice()}+' €'"></span></div>
+            <form action="#" th:action="@{'/addProduct/'+${product.getId()}}" th:method="post">
+                  <button class="btn btn-primary btn-sm" type="submit">+<i class="ci-cart fs-base ms-1"></i></button>
+            </form>
           </div>
         </div>
       </div>
