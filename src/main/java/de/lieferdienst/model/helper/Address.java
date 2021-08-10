@@ -18,7 +18,7 @@ public class Address extends BaseEntity {
     private String street;
 
     @NotNull(message = "House Number cannot be null.")
-    @Size(min = 1, max = 10, message = "House Number must be 1-10 characters long.")
+    @Size(max = 10, message = "House Number must be 1-10 characters long.")
     private String houseNumber;
 
     @NotNull (message = "zipCode cannot be null.")

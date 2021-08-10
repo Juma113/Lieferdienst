@@ -9,6 +9,7 @@ import de.lieferdienst.repository.storage.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,6 +24,8 @@ public class UserController {
 
     private final ShoppingCartRepository shoppingCartRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
     public UserController(UserRepository userRepository, AddressRepository addressRepository, ShoppingCartRepository shoppingCartRepository) {
@@ -48,7 +51,7 @@ public class UserController {
     @PostMapping(path = "/add", produces = "application/json")
     ResponseEntity<User> saveUser(@RequestBody User user) {
 
-        user.setPassword(User.get_SHA_256_SecurePassword(user.getPassword()));
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setAddress(addressRepository.save(user.getAddress()));
         user.setShoppingCart(shoppingCartRepository.save(new ShoppingCart()));
         return ResponseEntity.ok(this.userRepository.save(user));

@@ -16,7 +16,7 @@ public class Orders extends BaseEntity {
     private final transient Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     @Transient
-    public static final double SHIPPINGFEE = 5.99;     // Constant Shipping cost.
+    public static final double SHIPPINGFEE = 3.99;     // Constant Shipping cost.
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date ordered;

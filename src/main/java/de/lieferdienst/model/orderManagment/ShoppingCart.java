@@ -48,7 +48,7 @@ public class ShoppingCart extends BaseEntity {
         {
             for (Product temp : this.items)
             {
-                result += temp.returnPriceWithFee();
+                result += temp.returnPriceWithoutFee();
             }
         }
         this.totalPrice = result;
@@ -60,7 +60,7 @@ public class ShoppingCart extends BaseEntity {
         if (product != null )
         {
             items.add(product);
-            this.totalPrice+=product.returnPriceWithFee();
+            this.totalPrice+=product.returnPriceWithoutFee();
             result = true;
             logger.info("Added Product to Shoppingcart.");
         }
@@ -77,7 +77,7 @@ public class ShoppingCart extends BaseEntity {
         if (product != null)
         {
             items.remove(product);
-            this.totalPrice -= product.returnPriceWithFee();
+            this.totalPrice -= product.returnPriceWithoutFee();
             result = true;
             logger.info("deleted Product from Shoppingcart.");
         }
@@ -96,7 +96,7 @@ public class ShoppingCart extends BaseEntity {
             while(items.contains(product))
             {
                 items.remove(product);
-                this.totalPrice -= product.returnPriceWithFee();
+                this.totalPrice -= product.returnPriceWithoutFee();
                 result +=1;
             }
             logger.info(result + " Occurance(s) of Product was/were removed from Shoppingcart.");
