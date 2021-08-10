@@ -53,7 +53,7 @@ public class Orders extends BaseEntity {
         this.ordered = new Date();
         this.shipped = null;
         this.shippingAddress = address;
-        this.orderStatus = OrderStatus.REGISTERED;
+        this.orderStatus = OrderStatus.REGISTRIERT;
         this.shippingStatus = ShippingStatus.PENDING;
         this.shoppingcart = shoppingcart;
         this.calcTotal();
@@ -69,7 +69,7 @@ public class Orders extends BaseEntity {
         this.ordered = new Date();
         this.shipped = null;
         this.shippingAddress = address;
-        this.orderStatus = OrderStatus.REGISTERED;
+        this.orderStatus = OrderStatus.REGISTRIERT;
         this.shippingStatus = ShippingStatus.PENDING;
         this.shoppingcart = shoppingcart;
         this.calcTotal();
@@ -85,7 +85,7 @@ public class Orders extends BaseEntity {
         this.ordered = new Date();
         this.shipped = null;
         this.shippingAddress = address;
-        this.orderStatus = OrderStatus.REGISTERED;
+        this.orderStatus = OrderStatus.REGISTRIERT;
         this.shippingStatus = ShippingStatus.PENDING;
         this.shoppingcart = shoppingcart;
         this.calcTotal();
@@ -148,7 +148,7 @@ public class Orders extends BaseEntity {
     public void setShippingStatus(ShippingStatus newShippingStatus) {
         this.shippingStatus = newShippingStatus;
         logger.info("ShippingStatus was set to " + newShippingStatus + ".");
-        if (newShippingStatus == ShippingStatus.SENT) {
+        if (newShippingStatus == ShippingStatus.GESENDET) {
             setShipped(new Date());
         }
     }
@@ -193,8 +193,8 @@ public class Orders extends BaseEntity {
         boolean success = false;
         if (!wasAlreadyPaid()) {
             this.getPayment().setDatePaid(new Date());
-            this.setShippingStatus(ShippingStatus.SENT);
-            this.setOrderStatus(OrderStatus.FINISHED);
+            this.setShippingStatus(ShippingStatus.GESENDET);
+            this.setOrderStatus(OrderStatus.BEENDET);
             success = true;
             logger.info("Orders was paid.");
         } else {
