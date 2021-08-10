@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="de" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+  <th:block th:include="fragments/head::head"></th:block>
+</head>
+  <!-- Body-->
+  <body class="handheld-toolbar-enabled">
+    <main class="page-wrapper">
+      <!-- Navbar for Food Delivery Service demo-->
+      <header th:replace="fragments/header::header"></header>
+      <div class="container pt-4 pb-3 py-sm-4">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb flex-lg-nowrap justify-content-center justify-content-lg-start">
+            <li class="breadcrumb-item"><a class="text-nowrap" href="/"><i class="ci-home"></i>Home</a></li>
+            <li class="breadcrumb-item text-nowrap active" aria-current="page">Warenkorb</li>
+          </ol>
+        </nav>
+        <div class="rounded-3 shadow-lg mt-4 mb-5">
+          <ul class="nav nav-tabs nav-justified mb-4">
+            <li class="nav-item"><a class="nav-link fs-lg fw-medium py-4 active" href="/cart">1. Einkaufswagen</a></li>
+            <li class="nav-item"><a class="nav-link fs-lg fw-medium py-4" href="/checkout">2. Kasse</a></li>
+          </ul>
+          <div class="px-3 px-sm-4 px-xl-5 pt-1 pb-4 pb-sm-5">
+            <div th:if="${#lists.isEmpty(items)}" >
+              <h1><span style="width:300px;">Leer</span></h1>
+              <a href="/" class="btn btn-primary btn-lg" style="width:300px;">Produkte durchsuchen</a>
+            </div>
+            <div class="row" th:unless="${#lists.isEmpty(items)}">
+              <!-- Items in cart-->
+              <div class="col-lg-8 col-md-7 pt-sm-2" th:each="product : ${items}">
+                <!-- Item-->
+                <div class="d-sm-flex justify-content-between align-items-center mt-3 mb-4 pb-3 border-bottom">
+                  <div class="d-block d-sm-flex align-items-center text-center text-sm-start">
+                      <img th:src="${product.getImagPath()}" src="img/food-delivery/cart/01.jpg" width="120" >
+                    <div class="pt-2">
+                      <h3 class="product-title fs-base mb-2" th:utext="${product.getProductName()}"></h3>
+                      <div class="fs-sm">
+                        <p class="fs-ms text-muted text-center" th:utext="${product.getDescription()}"></p>
+                      </div>
+                      <div class="fs-lg text-accent pt-2"><span class="text-accent" th:utext="${product.getPrice()}+' €'"></span></div>
+                    </div>
+                  </div>
+                  <div class="pt-2 pt-sm-0 ps-sm-3 mx-auto mx-sm-0 text-center text-sm-start" style="max-width: 9rem;">
+                    <form action="#" th:action="@{'/deleteProduct/'+${product.getId()}}" method="post">
+                      <button class="btn btn-link px-0 text-danger" type="submit">
+                        <i class="ci-close-circle me-2"></i><span class="fs-sm">Remove</span>
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!-- Sidebar-->
+              <div class="col-lg-4 col-md-5 pt-3 pt-sm-4">
+                <div class="rounded-3 bg-secondary px-3 px-sm-4 py-4">
+                  <div class="text-center mb-4 pb-3 border-bottom">
+                    <h3 class="h5 mb-3 pb-1">Preissumme</h3>
+                    <h4 class="fw-normal" th:utext="${prizeMoney}+'€'"></h4>
+                  </div>
+                  <a class="btn btn-primary btn-shadow d-block w-100 mt-4 mb-3" href="/checkout"><i class="ci-card fs-lg me-2"></i>zur Kasse gehen </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Footer-->
+    <footer th:replace="fragments/footer :: footer"></footer>
+    <!-- Toolbar for handheld devices (Food delivery)-->
+    <div th:replace="fragments/toolbar :: toolbar"></div>
+    <!-- Back To Top Button-->
+    <th:block th:include="fragments/topbutton::topbutton"></th:block>
+    <!-- Vendor scrits: js libraries and plugins-->
+    <th:block th:include="fragments/javascript::javascript"></th:block>
+  </body>
+</html>

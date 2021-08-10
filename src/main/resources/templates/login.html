@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="de" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <th:block th:include="fragments/head::head"></th:block>
+    </head>
+  <!-- Body-->
+  <body class="handheld-toolbar-enabled">
+    <main class="page-wrapper">
+      <!-- Navbar for Food Delivery Service demo-->
+      <header th:replace="fragments/header::header"></header>
+      <div class="container py-4 py-lg-5 my-4">
+        <div class="row">
+          <div class="col">
+            <div class="card border-0 shadow">
+              <div class="card-body">
+                <h2 class="h4 mb-5">Anmelden</h2>
+                <div th:if="${param.error}">
+                    <p class="text-danger">E-Mail oder Passwort ist Falsch</p>
+                </div>
+                <div th:if="${param.logout}">
+                  <p class="text-warning">Sie Haben abgemeldet</p>
+                </div>
+                <form th:action="@{/login}"  method="post"  class="needs-validation" novalidate>
+                  <div class="mb-2">
+                    <label class="form-label" for="si-email">E-Mail Adresse</label>
+                    <input class="form-control" name="email"   type="email" id="si-email" placeholder="johndoe@example.com" required>
+                    <div class="invalid-feedback">Bitte geben Sie eine gültige E-Mail Adresse an.</div>
+                  </div>
+                  <div class="mb-2">
+                    <label class="form-label" for="si-password">Passwort</label>
+                    <div class="password-toggle">
+                      <input class="form-control" type="password" name="password" id="si-password" required>
+                      <label class="password-toggle-btn" aria-label="Show/hide password">
+                        <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="mb-2 d-flex flex-wrap justify-content-between">
+                    <div class="form-check mb-2">
+                      <input class="form-check-input" name="remember-me" type="checkbox" id="si-remember">
+                      <label class="form-check-label" for="si-remember">Erinnere mich</label>
+                    </div>
+                  </div>
+                  <input class="btn btn-primary btn-shadow d-block w-100" type="submit" value="ANMELDEN">
+                </form>
+                <div class="col-12 text-end mt-5">
+                  <a class="btn btn-primary" href="/accountSignup" ><i class="ci-user me-2 ms-n1"></i>REGISTRIEREN</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Footer-->
+    <footer th:replace="fragments/footer :: footer"></footer>
+    <!-- Toolbar for handheld devices (Food delivery)-->
+    <div th:replace="fragments/toolbar :: toolbar"></div>
+    <!-- Back To Top Button-->
+    <th:block th:include="fragments/topbutton::topbutton"></th:block>
+    <!-- Vendor scrits: js libraries and plugins-->
+    <th:block th:include="fragments/javascript::javascript"></th:block>
+  </body>
+</html>
