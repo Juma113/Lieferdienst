@@ -35,7 +35,7 @@ class UserTest {
                 LocalDate.of(1997,9,14),"015775651221", address1,shoppingCart1);
         restaurant1 = new Restaurant("Sham");
         category1 = new Category("Arabische Spezialisten",restaurant1);
-        product1 = new Product("Teigrolle Fahita","Hähnchenbrust,Paprika",4.00,category1);
+        product1 = new Product("Teigrolle Fahita","Hähnchenbrust,Paprika",4.00,"img/food-delivery/restaurants/single/fahitaRolle.png",category1);
         try {
             shoppingCart1.addProduct(product1);
             orders1 = new Orders(address1,shoppingCart1);
