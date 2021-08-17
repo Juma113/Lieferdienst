@@ -42,10 +42,11 @@ public class Product  extends BaseEntity {
     private Category category;
     ///////////////////////////Constructor//////////////////////////
 
-    public Product(String productName, String description, double price, Category category) {
+    public Product(String productName, String description, double price,String imagPath, Category category) {
         this.productName = productName;
         Description = description;
         this.price = price;
+        this.imagPath = imagPath;
         this.category = category;
     }
 
