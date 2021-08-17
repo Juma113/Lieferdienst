@@ -74,7 +74,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         web.ignoring().antMatchers("/img/**");
         web.ignoring().antMatchers("/vendor/**");
         web.ignoring().antMatchers("/fonts/**");
-
     }
 
 }
