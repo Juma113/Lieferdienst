@@ -14,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 public class OrderTest {
 
@@ -81,5 +82,14 @@ public class OrderTest {
         //When
         //Then
         assertEquals(PaymentMethod.PAYPAL, order1.getPayment().getPaymentMethod());
+    }
+
+    @Test
+    public void shouldBePaidIfPaymentDateIsSet() {
+        //Given
+        //When
+        order1.getPayment().setDatePaid(new Date());
+        //Then
+        assertTrue(order1.wasAlreadyPaid());
     }
 }
