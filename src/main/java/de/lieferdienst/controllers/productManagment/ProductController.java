@@ -43,10 +43,10 @@ public class ProductController {
     }
 
     @PostMapping(path = "/add", produces = "application/json")
-    ResponseEntity<Product> addNewProduct(@RequestParam String productName,@RequestParam String Description,@RequestParam double price,@RequestParam Long categoryId) {
+    ResponseEntity<Product> addNewProduct(@RequestParam String productName,@RequestParam String Description,@RequestParam double price,@RequestParam String imagPath,@RequestParam Long categoryId) {
        Optional <Category> optionalCategory = categoryRepository.findById(categoryId);
        Category category = optionalCategory.get();
-        Product product = new Product(productName,Description,price,category);
+        Product product = new Product(productName,Description,price,imagPath,category);
         return ResponseEntity.ok(this.productRepository.save(product));
     }
 
