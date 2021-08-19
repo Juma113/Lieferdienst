@@ -20,6 +20,11 @@ public class Category extends BaseEntity {
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Restaurant restaurant;
     ///////////////////////////Constructor//////////////////////////
+    /**
+     * @param sortTitle sortTitle
+     * @param restaurantName restaurantName
+     * @author Lieferdienst Team
+     */
     public Category(String sortTitle,String restaurantName)
     {
         this.sortTitle = sortTitle;

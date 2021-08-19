@@ -10,6 +10,12 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.logging.Logger;
 
+/**
+ * Class which represents Orders
+ *
+ * @author Lieferdienst Team
+ */
+
 @Entity
 public class Orders extends BaseEntity {
 
@@ -45,9 +51,13 @@ public class Orders extends BaseEntity {
     private User user;
 
     ///////////////////////////Constructor//////////////////////////
-    /*
-       Creates an Orders Object without PaymentMethod.
-    */
+    /**
+     * Creates an Order Object without PaymentMethod.
+     *
+     * @param address      Address for shipping and billing.
+     * @param shoppingcart List of watches, which shall be ordered
+     * @author Lieferdienst
+     */
     public Orders(Address address, ShoppingCart shoppingcart) throws ShoppingCartEmptyException {
         checkShoppingCartEmpty(shoppingcart);
         this.ordered = new Date();
@@ -61,9 +71,14 @@ public class Orders extends BaseEntity {
         logger.info("New Orders was created.");
     }
 
-    /*
-       Creates an Orders Object with PaymentMethod.
-    */
+    /**
+     * Creates an Order Object with PaymentMethod.
+     *
+     * @param address       Address for shipping and billing.
+     * @param shoppingcart  List of watches, which shall be ordered
+     * @param paymentMethod How the Order shall be paid.
+     * @author Lieferdienst Team
+     */
     public Orders(Address address, ShoppingCart shoppingcart, PaymentMethod paymentMethod) throws ShoppingCartEmptyException {
         checkShoppingCartEmpty(shoppingcart);
         this.ordered = new Date();
@@ -77,9 +92,14 @@ public class Orders extends BaseEntity {
         logger.info("New Orders was created.");
     }
 
-    /*
-       Creates an Orders Object with User.
-    */
+    /**
+     * Creates an Order Object with User.
+     *
+     * @param address      Address for shipping and billing.
+     * @param shoppingcart List of watches, which shall be ordered
+     * @param user         Owner.
+     * @author Liferdienst Team
+     */
     public Orders(Address address, ShoppingCart shoppingcart, User user) throws ShoppingCartEmptyException {
         checkShoppingCartEmpty(shoppingcart);
         this.ordered = new Date();
@@ -93,11 +113,20 @@ public class Orders extends BaseEntity {
         this.user = user;
         logger.info("New Orders was created.");
     }
-
+    /**
+     * Constructor without Parameters for JPA.
+     *
+     * @author Lieferdienst Team
+     */
     public Orders() {
 
     }
-
+    /**
+     * Checks if the Shoppingcart contains any Items: If not - throws ShoppingcartEmptyException
+     *
+     * @param shoppingcart Shoppingcart which will be checked
+     * @author Lieferdienst Team
+     */
     private void checkShoppingCartEmpty(ShoppingCart shoppingcart) throws ShoppingCartEmptyException {
         if (shoppingcart.getItems().isEmpty()) {
             logger.warning("Shoppingcart in Orders cannot be empty");
@@ -145,6 +174,13 @@ public class Orders extends BaseEntity {
         return shippingStatus;
     }
 
+    /**
+     * Sets the ShippingStatus of an Order and if newShippingStatus is SENT, sets shipping date to current time
+     *
+     * @param newShippingStatus Desired new ShippingStatus
+     * @author Lieferdienst Team
+     */
+
     public void setShippingStatus(ShippingStatus newShippingStatus) {
         this.shippingStatus = newShippingStatus;
         logger.info("ShippingStatus was set to " + newShippingStatus + ".");
@@ -152,7 +188,11 @@ public class Orders extends BaseEntity {
             setShipped(new Date());
         }
     }
-
+    /**
+     * Calculates new total for Order including SHIPPINGFEE.
+     *
+     * @author Lieferdienst Team
+     */
     public void calcTotal() {
         this.total = this.shoppingcart.getTotalPrice() + SHIPPINGFEE;
     }
@@ -182,9 +222,13 @@ public class Orders extends BaseEntity {
     public void setPayment(Payment payment) {
         this.payment = payment;
     }
-    /*
-        Checks whether or not this Orders has a set datePaid in its Payment.
-    */
+
+    /**
+     * Checks whether or not this Order has a set datePaid in its Payment.
+     *
+     * @return true if datePaid in this Payment is set, else false
+     * @author Lieferdienst Team
+     */
     public boolean wasAlreadyPaid() {
         return this.payment.getDatePaid() != null;
     }

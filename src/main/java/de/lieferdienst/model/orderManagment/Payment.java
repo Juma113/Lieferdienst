@@ -6,7 +6,10 @@ import de.lieferdienst.model.helper.BaseEntity;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.logging.Logger;
-
+/**
+ * Class which represents a Payment
+ * @author Lieferdienst Team
+ */
 @Entity
 public class Payment extends BaseEntity {
 
@@ -30,18 +33,22 @@ public class Payment extends BaseEntity {
         this.details = null;
     }
 
-    /*
-        Creates Payment-Object with given Payment Method. Can be used when default Payment Method of an Account is set.
-    */
+    /**
+     * Creates Payment-Object with given Payment Method. Can be used when default Payment Method of an Account is set.
+     * @param paymentMethod Payment Method. For example PayPal or Transfer.
+     * @author Lieferdienst Team
+     */
     public Payment(PaymentMethod paymentMethod) {
         this.datePaid = null;
         this.paymentMethod = paymentMethod;
         this.details = null;
     }
 
-    /*
-
-    */
+    /**
+     * @param paymentMethod Payment Method. For example PayPal or Transfer.
+     * @param details       Details for Payment. Usage or extra information.
+     * @author Lieferdienst Team
+     */
     public Payment(PaymentMethod paymentMethod, String details) {
         this.datePaid = null;
         this.paymentMethod = paymentMethod;
@@ -49,9 +56,13 @@ public class Payment extends BaseEntity {
     }
 
 
-    /*
-        Creates a completed/paid Payment.
-    */
+    /**
+     * Creates a completed/paid Payment.
+     * @param paymentMethod Payment Method. For example PayPal or Transfer.
+     * @param details       Details for Payment. Usage or extra information.
+     * @param paid          Date at which Payment was executed.
+     * @author Lieferdienst Team
+     */
     public Payment(Date paid, PaymentMethod paymentMethod, String details) {
         this.datePaid = paid;
         this.paymentMethod = paymentMethod;

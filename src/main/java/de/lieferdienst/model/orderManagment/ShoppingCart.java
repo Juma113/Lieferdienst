@@ -11,6 +11,10 @@ import java.util.logging.Logger;
 
 
 //////////////////////////////////Start Class ShoppingCart/////////////////////////
+/**
+ * Class which represents a Shoppingcart
+ * @author Lieferdienst Team
+ */
 @Entity
 public class ShoppingCart extends BaseEntity {
 
@@ -41,6 +45,11 @@ public class ShoppingCart extends BaseEntity {
         this.items = items;
     }
 
+    /**
+     * Calculates the sum of prices in items and sets it as total.
+     * Default = 0.0
+     * @author Lieferdienst Team
+     */
     public void calcTotalPrice()
     {
         double result = 0.0;
@@ -53,7 +62,12 @@ public class ShoppingCart extends BaseEntity {
         }
         this.totalPrice = result;
     }
-
+    /**
+     * Adds given product to ShoppingCart-List items.
+     * @param product Product which shall be added to this Shoppingcart
+     * @return True if successful, false if watch not found or invalid.
+     * @author Lieferdienst Team
+     */
     public boolean addProduct(Product product)
     {
         boolean result = false;
@@ -70,7 +84,12 @@ public class ShoppingCart extends BaseEntity {
         }
         return result;
     }
-
+    /**
+     * Removes given product from ShoppingCart-List items.
+     * @param product Product which shall be removed
+     * @return true if successful, false if watch not found.
+     * @author Lieferdienst Team
+     */
     public boolean deleteProduct(Product product)
     {
         boolean result = false;
@@ -107,7 +126,10 @@ public class ShoppingCart extends BaseEntity {
         }
         return result;
     }
-
+    /**
+     * Removes all Watches from Shoppingcart-List and sets total as 0.0
+     * @author Lieferdienst Team
+     */
     public void clear()
     {
         items.clear();

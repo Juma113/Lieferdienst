@@ -9,6 +9,12 @@ import javax.validation.constraints.Size;
 
 
 //////////////////////////////////Start Class Address/////////////////////////
+/**
+ * Class which represents an Address
+ *
+ * @author Lieferdienst Team
+ */
+
 @NoArgsConstructor
 @Entity
 public class Address extends BaseEntity {
@@ -31,6 +37,13 @@ public class Address extends BaseEntity {
 
 
     ///////////////////////////Constructor//////////////////////////
+    /**
+     * @param street street
+     * @param houseNumber  the house number
+     * @param zipCode    the zipcode
+     * @param city   the city
+     * @author Lieferdienst Team
+     */
     public Address(String street, String houseNumber, String zipCode, String city)
     {
         this.street= street;

@@ -73,7 +73,17 @@ public class User extends BaseEntity {
 
     ///////////////////////////Constructor//////////////////////////
 
-
+    /**
+     * @param firstName      firstname from the person
+     * @param lastName       lastname from the person
+     * @param email          the email from the person
+     * @param password the password for the account
+     * @param dob            the date of birth from the customer
+     * @param phone          phonenumber from the person
+     * @param address        the address of the person
+     * @param shoppingCart   shoppingcart from the customer
+     * @author Lieferdienst Team
+     */
     public User(String firstName, String lastName, String email, String password, LocalDate dob, String phone, Address address, ShoppingCart shoppingCart) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -88,7 +98,12 @@ public class User extends BaseEntity {
         this.orders = new ArrayList<>();
     }
 
-
+    /**
+     * Hash-Function
+     *
+     * @param passwordToHash password that should be hashed
+     * @return hashed password
+     */
     public static String get_SHA_256_SecurePassword(String passwordToHash) {
         String generatedPassword = null;
         try {
@@ -106,21 +121,42 @@ public class User extends BaseEntity {
         return generatedPassword;
     }
 
-
+    /**
+     * setSecurePassword for Spring default setter
+     *
+     * @param newPasswordToHash password that should be hashed
+     *                          hashing the new password and replacing it
+     */
     public void setPassword(String newPasswordToHash) {
         this.password = newPasswordToHash;
     }
 
+    /**
+     * changePassword for our method tests
+     *
+     * @param newPasswordToHash password that should be hashed
+     *                          hashing the new password and replacing it
+     */
     public void changePassword(String newPasswordToHash) {
         this.password = get_SHA_256_SecurePassword(newPasswordToHash);
     }
-
+    /**
+     * Adding an order to the Orderlist
+     *
+     * @param order order that schould be added
+     * @return true when the order was added
+     */
     public boolean addOrder(Orders order) {
         orders.add(order);
         logger.info("Orders was added.");
         return true;
     }
-
+    /**
+     * Removing an Order
+     *
+     * @param order order that schould be removed
+     * @return true, when the order was removed / false, when the order was not found
+     */
     public boolean removeOrder(Orders order) {
         if (orders.contains(order)) {
             orders.remove(order);

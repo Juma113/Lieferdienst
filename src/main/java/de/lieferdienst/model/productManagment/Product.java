@@ -41,7 +41,16 @@ public class Product  extends BaseEntity {
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Category category;
     ///////////////////////////Constructor//////////////////////////
-
+    /**
+     * creates a product object with the parts being null
+     *
+     * @param productName       name of the product
+     * @param description       description of the product
+     * @param price             price of the product
+     * @param imagPath          imagPath of the product
+     * @param category          category of the product
+     * @author Lieferdienst Team
+     */
     public Product(String productName, String description, double price,String imagPath, Category category) {
         this.productName = productName;
         Description = description;
