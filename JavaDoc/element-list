@@ -1,0 +1,15 @@
+de.lieferdienst
+de.lieferdienst.controllers
+de.lieferdienst.controllers.helper
+de.lieferdienst.controllers.orderManagment
+de.lieferdienst.controllers.productManagment
+de.lieferdienst.controllers.userManagment
+de.lieferdienst.core
+de.lieferdienst.model.errors
+de.lieferdienst.model.helper
+de.lieferdienst.model.orderManagmant
+de.lieferdienst.model.orderManagment
+de.lieferdienst.model.productManagment
+de.lieferdienst.model.userManagment
+de.lieferdienst.repository.storage
+de.lieferdienst.repository.storage.UserDetail
